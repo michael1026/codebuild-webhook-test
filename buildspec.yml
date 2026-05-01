@@ -2,11 +2,13 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Build branch: $CODEBUILD_WEBHOOK_HEAD_REF"
-      - echo "Source version: $CODEBUILD_SOURCE_VERSION"
-      - echo "Webhook event: $CODEBUILD_WEBHOOK_EVENT"
-      - echo "Webhook trigger: $CODEBUILD_WEBHOOK_TRIGGER"
-      - echo "=== ALL CODEBUILD VARS ==="
-      - env | grep CODEBUILD | sort
-      - echo "=== FULL ENV ==="
-      - env | sort
+      - "echo BUILD_BRANCH=$CODEBUILD_WEBHOOK_HEAD_REF"
+      - "echo SOURCE_VERSION=$CODEBUILD_SOURCE_VERSION"
+      - "echo WEBHOOK_EVENT=$CODEBUILD_WEBHOOK_EVENT"
+      - "echo WEBHOOK_TRIGGER=$CODEBUILD_WEBHOOK_TRIGGER"
+      - "echo RESOLVED_SOURCE=$CODEBUILD_RESOLVED_SOURCE_VERSION"
+      - "echo CODEBUILD_SOURCE_REPO_URL=$CODEBUILD_SOURCE_REPO_URL"
+      - "echo === ALL CODEBUILD VARS ==="
+      - "env | grep CODEBUILD | sort"
+      - "echo === FULL ENV ==="
+      - "env | sort"
